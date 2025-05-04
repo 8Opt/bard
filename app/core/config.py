@@ -13,10 +13,15 @@ class Settings(BaseSettings):
     DB_REDIS_URL: str
     DB_MONGO_URL: str
     DB_POSTGRES_URL: str
+    PAGE_MAX_SIZE: int = 10
 
-    MODEL_PROVIDER: str = "huggingface"  # or huggingface / local
-    GEMINI_API_KEY: str = "gemini"
-    ANTHROPIC_API_KEY: str = "anthropic"
-    OPENAI_API_KEY: str = "openai"
+    API_KEY_HF: str
+    API_KEY_GEMINI: str
+    API_KEY_ANTHROPIC: str
+    API_KEY_OPENAI: str
+
+    API_KEY_TAVILY: str
+    API_KEY_LINKUP: str
+    API_KEY_JINA: str
 
 settings = Settings()   

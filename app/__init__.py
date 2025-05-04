@@ -7,12 +7,13 @@ from fastapi import FastAPI
 from fastapi.openapi.utils import get_openapi
 from fastapi.responses import FileResponse
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import ORJSONResponse
 
 from app.api import api_router
-from app.utils import setup_logger
+from app.core import setup_logger
 
 
-app_logger = setup_logger("Device")
+app_logger = setup_logger("bard")
 
 
 def get_project_metadata():
@@ -27,9 +28,9 @@ def get_project_metadata():
             }
     except (FileNotFoundError, KeyError):
         return {
-            "title": "device",
-            "version": "0.2.0",
-            "description": "Quản lý thiết bị",
+            "title": "bard",
+            "version": "0.1.0",
+            "description": "Agent System",
         }
 
 
@@ -77,9 +78,14 @@ app = FastAPI(
     docs_url="/",
     lifespan=lifespan,
     openapi_url="/openapi.json",
+    default_response_class=ORJSONResponse,
     title=metadata["title"],
     version=metadata["version"],
     description=metadata["description"],
+    license_info={
+        "name": "MIT License",
+        "url": "https://opensource.org/licenses/MIT",
+    },
 )
 
 app.include_router(api_router)
