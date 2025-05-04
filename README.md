@@ -5,7 +5,7 @@ A simple, scalable **chatbot backend service** built with **Python** (FastAPI), 
 
 ---
 
-## ✨ Who
+## `bard`
 
 This project is created to **build a clean and extendable chatbot service**, including:
 

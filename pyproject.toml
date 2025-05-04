@@ -1,11 +1,29 @@
 [project]
 name = "bard"
 version = "0.1.0"
-description = "Add your description here"
+description = "Building a simple chatbot"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "fastapi[standard]>=0.115.12",
+    "langchain>=0.3.25",
+    "pre-commit>=4.2.0",
     "pydantic-settings>=2.9.1",
     "rich>=14.0.0",
+    "tomli>=2.2.1",
 ]
+
+
+[tool.ruff]
+line-length = 88
+exclude = ["archive", "__init__.py"]
+
+# Select rules explicitly (you can expand these)
+select = ["E", "F", "I", "W"]  # E: pycodestyle, F: pyflakes, I: isort, W: warnings
+ignore = ["E501"]  # Ignore long lines if needed
+
+[tool.isort]
+profile = "black"
+line_length = 88
+multi_line_output = 3
+include_trailing_comma = true

@@ -4,9 +4,9 @@
 
 FROM python:3.12-slim-bullseye AS base
 
-# Ensure Python 3.10 is used
+# Ensure Python 3.12 is used
 ENV PYTHONPATH=/app \
-    PYTHON_VERSION=3.10
+    PYTHON_VERSION=3.12
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -71,7 +71,6 @@ ENV PATH="/app/.venv/bin:$PATH" \
 COPY --from=builder /app/.venv /app/.venv
 COPY --from=builder /app/app /app/app
 
-RUN playwright install --with-deps chromium
 
 # Expose port if the serves an API
-EXPOSE 8000
+EXPOSE 7777

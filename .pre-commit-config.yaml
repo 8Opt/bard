@@ -4,6 +4,12 @@ repos:
     hooks:
       - id: check-yaml
 
+  - repo: https://github.com/pycqa/isort
+    rev: 5.11.2
+    hooks:
+      - id: isort
+        name: isort (python)
+
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.3.0
     hooks:
@@ -11,3 +17,4 @@ repos:
       - id: ruff
         args: [--fix]
         exclude: ^archive/|__init__.py$
+

@@ -1,0 +1,1 @@
+from app.utils.logging_config import setup_logger   # noqa
